@@ -31,6 +31,42 @@ How to Use
 
    Click on a dot on the left to show the content of that DAG node on the right.
 
+### Issue:
+OS Windows 10 
+
+npm: '10.8.3'
+
+#### Error:
+ 
+$ npm start
+
+> git-explorer@0.0.1 prestart
+> npm run build
+
+
+> git-explorer@0.0.1 prebuild
+> tslint -c tslint.json -p tsconfig.json --fix
+
+
+> git-explorer@0.0.1 build
+> tsc
+
+src/gitter/inject-refs.ts:30:11 - error TS18046: 'err' is of type 'unknown'.
+
+30       if (err.code === 'ENOENT') {
+             ~~~
+             
+Found 1 error in src/gitter/inject-refs.ts:30
+
+#### Fix:
+
+https://stackoverflow.com/a/69445095/2961448 
+
+you need to put it like this under compilerOptions
+
+"compilerOptions": {
+    "useUnknownInCatchVariables": false
+  }
 
 License
 -------
